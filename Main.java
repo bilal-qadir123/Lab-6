@@ -1,11 +1,12 @@
 public class Main {
   public static void main(String[] args) {
-      PrintJob printJob = new PrintJob();
+      Bank bank = new Bank(); 
 
-      Thread printThread = new Thread(() -> printJob.printPages(15));
-      Thread addPagesThread = new Thread(() -> printJob.addPages(10));
+      Withdraw userA = new Withdraw(bank, "User A", 45000); 
+      Withdraw userB = new Withdraw(bank, "User B", 20000); 
 
-      printThread.start();
-      addPagesThread.start();
+      userA.start(); 
+      userB.start(); 
+      
   }
 }
